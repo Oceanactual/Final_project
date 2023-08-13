@@ -1,0 +1,31 @@
+<h1>Profile</h1>
+
+<h2>Create New Character</h2>
+<Form>
+  <select class="form-select" aria-label="level input" name="level">
+    <option selected>Choose your level</option>
+    <% 20.times do |lvl|%>
+      <option><%=lvl+1%></option>
+    <%end%>
+  </select>
+  <select class="form-select" aria-label="race input" name ="race">
+    <option selected>Choose your race</option>
+    <% @races.each do |race|%>
+      <option value="<%=race.fetch("index")%>"><%=race.fetch("name")%></option>
+    <%end%>
+  </select>
+  <select class="form-select" aria-label="class input" name ="race">
+    <option selected>Choose your class</option>
+    <% @classes.each do |clas|%>
+      <option value="<%=clas.fetch("index")%>"><%=clas.fetch("name")%></option>
+    <%end%>
+  </select>
+    <select class="form-select" aria-label="background input" name ="background">
+    <option selected>Choose your background</option>
+    <% @backgrounds.each do |background|%>
+      <option value="<%=background.fetch("index")%>"><%=background.fetch("name")%></option>
+    <%end%>
+  </select>
+
+
+</Form>
