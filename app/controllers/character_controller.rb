@@ -15,9 +15,11 @@ class CharacterController < ApplicationController
     raw_backgrounds = JSON.parse(backgrounds_web)
     @backgrounds = raw_backgrounds.fetch("results")
 
-
-
-
     render({:template => "character/profile"})
+  end
+
+  def save
+
+    render({:template => "character/home"})
   end
 end

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   get("/", {:controller => "character", :action => "home"})
   get("/users/edit_profile", {:controller => "character", :action => "edit"})
+  get("/save_character", {:controller => "character", :action => "save"})
 
 end
