@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_13_221202) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_15_013326) do
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "level"
+    t.string "race"
+    t.string "sub_race"
+    t.string "background"
+    t.integer "str_score"
+    t.integer "dex_score"
+    t.integer "con_score"
+    t.integer "int_score"
+    t.integer "wis_score"
+    t.integer "cha_score"
+    t.integer "total_hp"
+    t.integer "current_hp"
+    t.integer "gold"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "clas"
+  end
+
   create_table "installs", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

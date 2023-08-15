@@ -1,7 +1,8 @@
 <h1>Profile</h1>
 
 <h2>Create New Character</h2>
-<Form action="/save_character">
+<Form action="/save_character" method = "post">
+  <input type="text" name="query_name">
   <select class="form-select" aria-label="level input" name="level">
     <option selected>Choose your level</option>
     <% 20.times do |lvl|%>
@@ -70,7 +71,7 @@
       <option value="<%=race.fetch("index")%>"><%=race.fetch("name")%></option>
     <%end%>
   </select>
-  <select class="form-select" aria-label="class input" name ="race">
+  <select class="form-select" aria-label="class input" name ="clas">
     <option selected>Choose your class</option>
     <% @classes.each do |clas|%>
       <option value="<%=clas.fetch("index")%>"><%=clas.fetch("name")%></option>
@@ -83,7 +84,7 @@
     <%end%>
   </select>
   <button>
-  Save Character
+    Save Character
   </button>
 
 </Form>
