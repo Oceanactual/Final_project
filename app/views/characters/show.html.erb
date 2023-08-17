@@ -115,12 +115,19 @@
             <%end%>
           </dd>
           <dd class="stats">
-
+          <% if @the_prof.athletics == true%>
             <% if @the_character.str_score-10 > 1%>
               Athletics +<%= (@the_character.str_score-10)/2%>
             <%else%>
               Athletics <%= (@the_character.str_score-10)/2%>
             <%end%>
+          <%else%>
+                      <% if @the_character.str_score-10 > 1%>
+              Athletics +<%= (@the_character.str_score-10)/2%>
+            <%else%>
+              Athletics <%= (@the_character.str_score-10)/2%>
+            <%end%>
+          <%end%>
           </dd>
         </div>
         <div class="stats_label">

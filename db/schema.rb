@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_17_222305) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_17_231040) do
   create_table "character_profs", force: :cascade do |t|
     t.boolean "str_save"
     t.boolean "dex_save"
     t.boolean "con_save"
     t.boolean "int_save"
     t.boolean "wis_save"
-    t.string "cha_save_boolean"
     t.boolean "athletics"
     t.boolean "acrobatics"
     t.boolean "sleight_of_hand"
@@ -39,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_17_222305) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "character_id"
+    t.boolean "chr_save"
   end
 
   create_table "characters", force: :cascade do |t|
