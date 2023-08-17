@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Character prof resource:
+
+  # CREATE
+  post("/insert_character_prof", { :controller => "character_profs", :action => "create" })
+          
+  # READ
+  get("/character_profs", { :controller => "character_profs", :action => "index" })
+  
+  get("/character_profs/:path_id", { :controller => "character_profs", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_character_prof/:path_id", { :controller => "character_profs", :action => "update" })
+  
+  # DELETE
+  get("/delete_character_prof/:path_id", { :controller => "character_profs", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Character resource:
 
   # CREATE

@@ -1,0 +1,408 @@
+<div>
+  <div>
+    <h1>
+      List of all character profs
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new character prof
+    </h2>
+
+    <form action="/insert_character_prof" method="post">
+      <div>
+        <input type="checkbox" id="str_save_box" name="query_str_save" value="1">
+
+        <label for="str_save_box">Str save</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="dex_save_box" name="query_dex_save" value="1">
+
+        <label for="dex_save_box">Dex save</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="con_save_box" name="query_con_save" value="1">
+
+        <label for="con_save_box">Con save</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="int_save_box" name="query_int_save" value="1">
+
+        <label for="int_save_box">Int save</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="wis_save_box" name="query_wis_save" value="1">
+
+        <label for="wis_save_box">Wis save</label>
+      </div>
+
+      <div>
+        <label for="cha_save_boolean_box">
+          Cha save boolean
+        </label>
+
+        <input type="text" id="cha_save_boolean_box" name="query_cha_save_boolean">
+      </div>
+
+      <div>
+        <input type="checkbox" id="athletics_box" name="query_athletics" value="1">
+
+        <label for="athletics_box">Athletics</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="acrobatics_box" name="query_acrobatics" value="1">
+
+        <label for="acrobatics_box">Acrobatics</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="sleight_of_hand_box" name="query_sleight_of_hand" value="1">
+
+        <label for="sleight_of_hand_box">Sleight of hand</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="stealth_box" name="query_stealth" value="1">
+
+        <label for="stealth_box">Stealth</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="arcana_box" name="query_arcana" value="1">
+
+        <label for="arcana_box">Arcana</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="history_box" name="query_history" value="1">
+
+        <label for="history_box">History</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="investigation_box" name="query_investigation" value="1">
+
+        <label for="investigation_box">Investigation</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="nature_box" name="query_nature" value="1">
+
+        <label for="nature_box">Nature</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="religion_box" name="query_religion" value="1">
+
+        <label for="religion_box">Religion</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="animal_handling_box" name="query_animal_handling" value="1">
+
+        <label for="animal_handling_box">Animal handling</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="insight_box" name="query_insight" value="1">
+
+        <label for="insight_box">Insight</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="medicine_box" name="query_medicine" value="1">
+
+        <label for="medicine_box">Medicine</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="perception_box" name="query_perception" value="1">
+
+        <label for="perception_box">Perception</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="survival_box" name="query_survival" value="1">
+
+        <label for="survival_box">Survival</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="deception_box" name="query_deception" value="1">
+
+        <label for="deception_box">Deception</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="intimidation_box" name="query_intimidation" value="1">
+
+        <label for="intimidation_box">Intimidation</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="persuasion_box" name="query_persuasion" value="1">
+
+        <label for="persuasion_box">Persuasion</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="performance_box" name="query_performance" value="1">
+
+        <label for="performance_box">Performance</label>
+      </div>
+
+      <button>
+        Create character prof
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Str save
+        </th>
+
+        <th>
+          Dex save
+        </th>
+
+        <th>
+          Con save
+        </th>
+
+        <th>
+          Int save
+        </th>
+
+        <th>
+          Wis save
+        </th>
+
+        <th>
+          Cha save boolean
+        </th>
+
+        <th>
+          Athletics
+        </th>
+
+        <th>
+          Acrobatics
+        </th>
+
+        <th>
+          Sleight of hand
+        </th>
+
+        <th>
+          Stealth
+        </th>
+
+        <th>
+          Arcana
+        </th>
+
+        <th>
+          History
+        </th>
+
+        <th>
+          Investigation
+        </th>
+
+        <th>
+          Nature
+        </th>
+
+        <th>
+          Religion
+        </th>
+
+        <th>
+          Animal handling
+        </th>
+
+        <th>
+          Insight
+        </th>
+
+        <th>
+          Medicine
+        </th>
+
+        <th>
+          Perception
+        </th>
+
+        <th>
+          Survival
+        </th>
+
+        <th>
+          Deception
+        </th>
+
+        <th>
+          Intimidation
+        </th>
+
+        <th>
+          Persuasion
+        </th>
+
+        <th>
+          Performance
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_character_profs.each do |a_character_prof| %>
+      <tr>
+        <td>
+          <%= a_character_prof.id %>
+        </td>
+
+        <td>
+          <%= a_character_prof.str_save %>
+        </td>
+
+        <td>
+          <%= a_character_prof.dex_save %>
+        </td>
+
+        <td>
+          <%= a_character_prof.con_save %>
+        </td>
+
+        <td>
+          <%= a_character_prof.int_save %>
+        </td>
+
+        <td>
+          <%= a_character_prof.wis_save %>
+        </td>
+
+        <td>
+          <%= a_character_prof.cha_save_boolean %>
+        </td>
+
+        <td>
+          <%= a_character_prof.athletics %>
+        </td>
+
+        <td>
+          <%= a_character_prof.acrobatics %>
+        </td>
+
+        <td>
+          <%= a_character_prof.sleight_of_hand %>
+        </td>
+
+        <td>
+          <%= a_character_prof.stealth %>
+        </td>
+
+        <td>
+          <%= a_character_prof.arcana %>
+        </td>
+
+        <td>
+          <%= a_character_prof.history %>
+        </td>
+
+        <td>
+          <%= a_character_prof.investigation %>
+        </td>
+
+        <td>
+          <%= a_character_prof.nature %>
+        </td>
+
+        <td>
+          <%= a_character_prof.religion %>
+        </td>
+
+        <td>
+          <%= a_character_prof.animal_handling %>
+        </td>
+
+        <td>
+          <%= a_character_prof.insight %>
+        </td>
+
+        <td>
+          <%= a_character_prof.medicine %>
+        </td>
+
+        <td>
+          <%= a_character_prof.perception %>
+        </td>
+
+        <td>
+          <%= a_character_prof.survival %>
+        </td>
+
+        <td>
+          <%= a_character_prof.deception %>
+        </td>
+
+        <td>
+          <%= a_character_prof.intimidation %>
+        </td>
+
+        <td>
+          <%= a_character_prof.persuasion %>
+        </td>
+
+        <td>
+          <%= a_character_prof.performance %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_character_prof.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_character_prof.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/character_profs/<%= a_character_prof.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
