@@ -14,131 +14,93 @@
       Add a new character
     </h2>
 
-    <form action="/insert_character" method="post">
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
+    <Form action="/save_character" method = "post">
+      <input type="text" name="query_name">
+      <select class="form-select" aria-label="level input" name="level">
+        <option selected>Choose your level</option>
+        <% 20.times do |lvl|%>
+          <option><%=lvl+1%></option>
+        <%end%>
+      </select>
+      <div class="stats">
+        <div class="stats_label">
+          <p>Strength</p>
+          <select class="form-select" aria-label="strength input" name ="strength_score">
+            <option selected>Choose your Strength</option>
+            <% 20.times do |scr|%>
+              <option><%=scr+1%></option>
+            <%end%>
+          </select>
+        </div>
+        <div class="stats_label">
+          <p>Dexterity</p>
+          <select class="form-select" aria-label="dexterity input" name ="dexterity_score">
+            <option selected>Choose your dexterity</option>
+            <% 20.times do |scr|%>
+              <option><%=scr+1%></option>
+            <%end%>
+          </select>
+        </div>
+        <div class="stats_label">
+          <p>Constitution</p>
+          <select class="form-select" aria-label="constitution input" name ="constitution_score">
+            <option selected>Choose your Constitution</option>
+            <% 20.times do |scr|%>
+              <option><%=scr+1%></option>
+            <%end%>
+          </select>
+        </div>
+        <div class="stats_label">
+          <p>Intelligence</p>
+          <select class="form-select" aria-label="intelligence input" name ="intelligence_score">
+            <option selected>Choose your Intelligence</option>
+            <% 20.times do |scr|%>
+              <option><%=scr+1%></option>
+            <%end%>
+          </select>
+        </div>
+        <div class="stats_label">
+          <p>Wisdom</p>
+          <select class="form-select" aria-label="wisdom input" name ="wisdom_score">
+            <option selected>Choose your Wisdom</option>
+            <% 20.times do |scr|%>
+              <option><%=scr+1%></option>
+            <%end%>
+          </select>
+        </div>
+        <div class="stats_label">
+          <p>Charisma</p>
+          <select class="form-select" aria-label="Charisma input" name ="charisma_score">
+            <option selected>Choose your Charisma</option>
+            <% 20.times do |scr|%>
+              <option><%=scr+1%></option>
+            <%end%>
+          </select>
+        </div>
       </div>
-
-      <div>
-        <label for="class_box">
-          Class
-        </label>
-
-        <input type="text" id="class_box" name="query_class">
-      </div>
-
-      <div>
-        <label for="level_box">
-          Level
-        </label>
-
-        <input type="text" id="level_box" name="query_level">
-      </div>
-
-      <div>
-        <label for="race_box">
-          Race
-        </label>
-
-        <input type="text" id="race_box" name="query_race">
-      </div>
-
-      <div>
-        <label for="sub_race_box">
-          Sub race
-        </label>
-
-        <input type="text" id="sub_race_box" name="query_sub_race">
-      </div>
-
-      <div>
-        <label for="background_box">
-          Background
-        </label>
-
-        <input type="text" id="background_box" name="query_background">
-      </div>
-
-      <div>
-        <label for="str_score_box">
-          Str score
-        </label>
-
-        <input type="text" id="str_score_box" name="query_str_score">
-      </div>
-
-      <div>
-        <label for="dex_score_box">
-          Dex score
-        </label>
-
-        <input type="text" id="dex_score_box" name="query_dex_score">
-      </div>
-
-      <div>
-        <label for="con_score_box">
-          Con score
-        </label>
-
-        <input type="text" id="con_score_box" name="query_con_score">
-      </div>
-
-      <div>
-        <label for="int_score_box">
-          Int score
-        </label>
-
-        <input type="text" id="int_score_box" name="query_int_score">
-      </div>
-
-      <div>
-        <label for="wis_score_box">
-          Wis score
-        </label>
-
-        <input type="text" id="wis_score_box" name="query_wis_score">
-      </div>
-
-      <div>
-        <label for="cha_score_box">
-          Cha score
-        </label>
-
-        <input type="text" id="cha_score_box" name="query_cha_score">
-      </div>
-
-      <div>
-        <label for="total_hp_box">
-          Total hp
-        </label>
-
-        <input type="text" id="total_hp_box" name="query_total_hp">
-      </div>
-
-      <div>
-        <label for="current_hp_box">
-          Current hp
-        </label>
-
-        <input type="text" id="current_hp_box" name="query_current_hp">
-      </div>
-
-      <div>
-        <label for="gold_box">
-          Gold
-        </label>
-
-        <input type="text" id="gold_box" name="query_gold">
-      </div>
-
+      <select class="form-select" aria-label="race input" name ="race">
+        <option selected>Choose your race</option>
+        <% @races.each do |race|%>
+          <option value="<%=race.fetch("index")%>"><%=race.fetch("name")%></option>
+        <%end%>
+      </select>
+      <select class="form-select" aria-label="class input" name ="clas">
+        <option selected>Choose your class</option>
+        <% @classes.each do |clas|%>
+          <option value="<%=clas.fetch("index")%>"><%=clas.fetch("name")%></option>
+        <%end%>
+      </select>
+      <select class="form-select" aria-label="background input" name ="background">
+        <option selected>Choose your background</option>
+        <% @backgrounds.each do |background|%>
+          <option value="<%=background.fetch("index")%>"><%=background.fetch("name")%></option>
+        <%end%>
+      </select>
       <button>
-        Create character
+        Save Character
       </button>
-    </form>
+
+    </Form>
   </div>
 </div>
 
@@ -147,9 +109,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Name
@@ -212,96 +171,91 @@
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
         </th>
       </tr>
 
       <% @list_of_characters.each do |a_character| %>
-      <tr>
-        <td>
-          <%= a_character.id %>
-        </td>
+        <tr>
+          <%if a_character.users_id == current_user.id%>
 
-        <td>
-          <%= a_character.name %>
-        </td>
+            <td>
+              <%= a_character.name %>
+            </td>
 
-        <td>
-          <%= a_character.class %>
-        </td>
+            <td>
+              <%= a_character.clas %>
+            </td>
 
-        <td>
-          <%= a_character.level %>
-        </td>
+            <td>
+              <%= a_character.level %>
+            </td>
 
-        <td>
-          <%= a_character.race %>
-        </td>
+            <td>
+              <%= a_character.race %>
+            </td>
 
-        <td>
-          <%= a_character.sub_race %>
-        </td>
+            <td>
+              <%= a_character.sub_race %>
+            </td>
 
-        <td>
-          <%= a_character.background %>
-        </td>
+            <td>
+              <%= a_character.background %>
+            </td>
 
-        <td>
-          <%= a_character.str_score %>
-        </td>
+            <td>
+              <%= a_character.str_score %>
+            </td>
 
-        <td>
-          <%= a_character.dex_score %>
-        </td>
+            <td>
+              <%= a_character.dex_score %>
+            </td>
 
-        <td>
-          <%= a_character.con_score %>
-        </td>
+            <td>
+              <%= a_character.con_score %>
+            </td>
 
-        <td>
-          <%= a_character.int_score %>
-        </td>
+            <td>
+              <%= a_character.int_score %>
+            </td>
 
-        <td>
-          <%= a_character.wis_score %>
-        </td>
+            <td>
+              <%= a_character.wis_score %>
+            </td>
 
-        <td>
-          <%= a_character.cha_score %>
-        </td>
+            <td>
+              <%= a_character.cha_score %>
+            </td>
 
-        <td>
-          <%= a_character.total_hp %>
-        </td>
+            <td>
+              <%= a_character.total_hp %>
+            </td>
 
-        <td>
-          <%= a_character.current_hp %>
-        </td>
+            <td>
+              <%= a_character.current_hp %>
+            </td>
 
-        <td>
-          <%= a_character.gold %>
-        </td>
+            <td>
+              <%= a_character.gold %>
+            </td>
 
-        <td>
-          <%= time_ago_in_words(a_character.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_character.updated_at) %> ago
-        </td>
+            <td>
+              <a href="/characters/<%= a_character.id %>">
+                Character Sheet
+              </a>
+            </td>
+            <td>
+              <a href="/characters_edit/<%= a_character.id %>">
+                edit
+              </a>
+            </td>
+            <td>
+              <a href="/delete_character/<%= a_character.id %>">
+                Delete character
+              </a>
+            </td>
+          <%end%>
+        </tr>
 
-        <td>
-          <a href="/characters/<%= a_character.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
       <% end %>
     </table>
   </div>

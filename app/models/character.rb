@@ -20,6 +20,7 @@
 #  wis_score  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  users_id   :integer
 #
 class Character < ApplicationRecord
 end

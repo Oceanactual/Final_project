@@ -1,7 +1,15 @@
 class CharacterController < ApplicationController
 
   def home
-    render({:template => "character/index"})
+    @my_character_list = Character.where({:users_id => current_user.id})
+    render({:template => "character/home"})
+  end
+
+  def show
+    matching_characters = Character.where({ :id => params.fetch("id") })
+    @character = matching_characters.at(0)
+  
+    render({ :template => "character/show" })
   end
 
   def edit
@@ -31,18 +39,19 @@ class CharacterController < ApplicationController
     char.int_score = params.fetch("intelligence_score")
     char.wis_score = params.fetch("wisdom_score")
     char.cha_score = params.fetch("charisma_score")
+    char.users_id = current_user.id
 
     hp_web = HTTP.get("https://www.dnd5eapi.co/api/classes/#{char.clas}")
     raw_hp = JSON.parse(hp_web)
     hp = raw_hp.fetch("hit_die")
 
     if char.level == 1
-      char.total_hp = hp.to_i + char.con_score
+      char.total_hp = hp.to_i + (char.con_score-10)/2
     else
       avg_hp = hp.to_i/2
       part_hp = avg_hp+1
       level_hp = part_hp*char.level
-      con_bonus = char.con_score*char.level
+      con_bonus = ((char.con_score-10)/2)*char.level
       char.total_hp = level_hp+con_bonus
     end
 
@@ -60,9 +69,10 @@ class CharacterController < ApplicationController
 
     char.save
 
+
     # if char.valid?
     #   char.save
-      redirect_to({:template => "characters/#{char.id}", :notice => "Post created successfully." })
+      redirect_to({:template => "characters/#{current_user.id}", :notice => "Post created successfully." })
     # else
     #   render({:template => "characters/#{char.id}", :alert => the_post.errors.full_messages.to_sentence })
     # end

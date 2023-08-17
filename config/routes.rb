@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get("/characters", { :controller => "characters", :action => "index" })
   
   get("/characters/:path_id", { :controller => "characters", :action => "show" })
+  get("/characters_edit/:path_id", { :controller => "characters", :action => "edit" })
   
   # UPDATE
   
@@ -28,7 +29,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get("/", {:controller => "character", :action => "home"})
+  # get("/character_list", {:controller => "character", :action =>"home"})
   get("/users/edit_profile", {:controller => "character", :action => "edit"})
   post("/save_character", {:controller => "character", :action => "save"})
+  get("/characters_list/:id", {:controller => "character", :action => "show"})
 
 end

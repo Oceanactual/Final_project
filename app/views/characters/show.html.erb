@@ -1,280 +1,176 @@
 <div>
   <div>
     <h1>
-      Character #<%= @the_character.id %> details
+      <%= @the_character.name %> details
     </h1>
 
     <div>
       <div>
-        <a href="/characters">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_character/<%= @the_character.id %>">
-          Delete character
+        <a href="/characters_edit/<%= @the_character.id %>">
+          Edit
         </a>
       </div>
     </div>
 
     <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_character.name %>
-      </dd>
+      <div class="stats">
+        <div class="stats_lavel">
+          <dt>
+            Class
+          </dt>
+          <dd>
+            <%= @the_character.clas %>
+          </dd>
+        </div>
+        <div class="stats_lavel">
+          <dt>
+            Level
+          </dt>
+          <dd>
+            <%= @the_character.level %>
+          </dd>
+        </div>
+        <div class="stats_lavel">
+          <dt>
+            Background
+          </dt>
+          <dd>
+            <%= @the_character.background %>
+          </dd>
+        </div>
+        <div class="stats_lavel">
 
-      <dt>
-        Class
-      </dt>
-      <dd>
-        <%= @the_character.class %>
-      </dd>
+          <dt>
+            Race
+          </dt>
+          <dd>
+            <%= @the_character.race %>
+          </dd>
+        </div>
+        <div class="stats_lavel">
 
-      <dt>
-        Level
-      </dt>
-      <dd>
-        <%= @the_character.level %>
-      </dd>
+          <dt>
+            Sub race
+          </dt>
+          <dd>
+            <%= @the_character.sub_race %>
+          </dd>
+        </div>
+        <div class="stats_lavel">
+          <dt>
+            Total hp
+          </dt>
+          <dd>
+            <%= @the_character.total_hp %>
+          </dd>
+        </div>
+        <div class="stats_lavel">
 
-      <dt>
-        Race
-      </dt>
-      <dd>
-        <%= @the_character.race %>
-      </dd>
+          <dt>
+            Current hp
+          </dt>
+          <dd>
+            <%= @the_character.current_hp %>
+          </dd>
+        </div>
+        <div class="stats_lavel">
 
-      <dt>
-        Sub race
-      </dt>
-      <dd>
-        <%= @the_character.sub_race %>
-      </dd>
+          <dt>
+            Gold
+          </dt>
+          <dd>
+            <%= @the_character.gold %>
+          </dd>
+        </div>
 
-      <dt>
-        Background
-      </dt>
-      <dd>
-        <%= @the_character.background %>
-      </dd>
+      </div>
+      <div class="stats">
+        <div class="stats_label">
+          <dt>
+            Ability
+          </dt>
+          <dd>
+            Score
+          </dd>
+          <dd>
+            Modifier
+          </dd>
+        </div>
+        <div class="stats_label">
 
-      <dt>
-        Str score
-      </dt>
-      <dd>
-        <%= @the_character.str_score %>
-      </dd>
+          <dt>
+            Strength
+          </dt>
+          <dd>
+            <%= @the_character.str_score %>
+          </dd>
+          <dd>
+            <%= (@the_character.str_score-10)/2%>
+          </dd>
+        </div>
+        <div class="stats_label">
 
-      <dt>
-        Dex score
-      </dt>
-      <dd>
-        <%= @the_character.dex_score %>
-      </dd>
+          <dt>
+            Dexterity
+          </dt>
+          <dd>
+            <%= @the_character.dex_score %>
+          </dd>
+          <dd>
+            <%= (@the_character.dex_score-10)/2%>
+          </dd>
+        </div>
+        <div class="stats_label">
 
-      <dt>
-        Con score
-      </dt>
-      <dd>
-        <%= @the_character.con_score %>
-      </dd>
+          <dt>
+            Constitution
+          </dt>
+          <dd>
+            <%= @the_character.con_score %>
+          </dd>
+          <dd>
+            <%= (@the_character.con_score-10)/2%>
+          </dd>
+        </div>
+        <div class="stats_label">
 
-      <dt>
-        Int score
-      </dt>
-      <dd>
-        <%= @the_character.int_score %>
-      </dd>
+          <dt>
+            Intelligence
+          </dt>
+          <dd>
+            <%= @the_character.int_score %>
+          </dd>
+          <dd>
+            <%= (@the_character.int_score-10)/2%>
+          </dd>
+        </div>
+        <div class="stats_label">
 
-      <dt>
-        Wis score
-      </dt>
-      <dd>
-        <%= @the_character.wis_score %>
-      </dd>
+          <dt>
+            Wisdom
+          </dt>
+          <dd>
+            <%= @the_character.wis_score %>
+          </dd>
+          <dd>
+            <%= (@the_character.wis_score-10)/2%>
+          </dd>
+        </div>
+        <div class="stats_label">
 
-      <dt>
-        Cha score
-      </dt>
-      <dd>
-        <%= @the_character.cha_score %>
-      </dd>
+          <dt>
+            Charisma
+          </dt>
+          <dd>
+            <%= @the_character.cha_score %>
+          </dd>
+          <dd>
+            <%= (@the_character.cha_score-10)/2%>
+          </dd>
+        </div>
+      </div>
 
-      <dt>
-        Total hp
-      </dt>
-      <dd>
-        <%= @the_character.total_hp %>
-      </dd>
-
-      <dt>
-        Current hp
-      </dt>
-      <dd>
-        <%= @the_character.current_hp %>
-      </dd>
-
-      <dt>
-        Gold
-      </dt>
-      <dd>
-        <%= @the_character.gold %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_character.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_character.updated_at) %> ago
-      </dd>
     </dl>
-  </div>
-</div>
-
-<hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit character
-    </h2>
-
-    <form action="/modify_character/<%= @the_character.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_character.name %>">
-      </div>
-
-      <div>
-        <label for="class_box">
-          Class
-        </label>
-
-        <input type="text" id="class_box" name="query_class" value="<%= @the_character.class %>">
-      </div>
-
-      <div>
-        <label for="level_box">
-          Level
-        </label>
-
-        <input type="text" id="level_box" name="query_level" value="<%= @the_character.level %>">
-      </div>
-
-      <div>
-        <label for="race_box">
-          Race
-        </label>
-
-        <input type="text" id="race_box" name="query_race" value="<%= @the_character.race %>">
-      </div>
-
-      <div>
-        <label for="sub_race_box">
-          Sub race
-        </label>
-
-        <input type="text" id="sub_race_box" name="query_sub_race" value="<%= @the_character.sub_race %>">
-      </div>
-
-      <div>
-        <label for="background_box">
-          Background
-        </label>
-
-        <input type="text" id="background_box" name="query_background" value="<%= @the_character.background %>">
-      </div>
-
-      <div>
-        <label for="str_score_box">
-          Str score
-        </label>
-
-        <input type="text" id="str_score_box" name="query_str_score" value="<%= @the_character.str_score %>">
-      </div>
-
-      <div>
-        <label for="dex_score_box">
-          Dex score
-        </label>
-
-        <input type="text" id="dex_score_box" name="query_dex_score" value="<%= @the_character.dex_score %>">
-      </div>
-
-      <div>
-        <label for="con_score_box">
-          Con score
-        </label>
-
-        <input type="text" id="con_score_box" name="query_con_score" value="<%= @the_character.con_score %>">
-      </div>
-
-      <div>
-        <label for="int_score_box">
-          Int score
-        </label>
-
-        <input type="text" id="int_score_box" name="query_int_score" value="<%= @the_character.int_score %>">
-      </div>
-
-      <div>
-        <label for="wis_score_box">
-          Wis score
-        </label>
-
-        <input type="text" id="wis_score_box" name="query_wis_score" value="<%= @the_character.wis_score %>">
-      </div>
-
-      <div>
-        <label for="cha_score_box">
-          Cha score
-        </label>
-
-        <input type="text" id="cha_score_box" name="query_cha_score" value="<%= @the_character.cha_score %>">
-      </div>
-
-      <div>
-        <label for="total_hp_box">
-          Total hp
-        </label>
-
-        <input type="text" id="total_hp_box" name="query_total_hp" value="<%= @the_character.total_hp %>">
-      </div>
-
-      <div>
-        <label for="current_hp_box">
-          Current hp
-        </label>
-
-        <input type="text" id="current_hp_box" name="query_current_hp" value="<%= @the_character.current_hp %>">
-      </div>
-
-      <div>
-        <label for="gold_box">
-          Gold
-        </label>
-
-        <input type="text" id="gold_box" name="query_gold" value="<%= @the_character.gold %>">
-      </div>
-
-      <button>
-        Update character
-      </button>
-    </form>
   </div>
 </div>
 
