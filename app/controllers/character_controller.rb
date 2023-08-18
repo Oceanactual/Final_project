@@ -2,6 +2,9 @@ class CharacterController < ApplicationController
 
   def home
     @my_character_list = Character.where({:users_id => current_user.id})
+    matching_characters = Character.all
+
+    @list_of_characters = matching_characters.order({ :created_at => :desc })
     render({:template => "character/home"})
   end
 

@@ -115,19 +115,7 @@
             <%end%>
           </dd>
           <dd class="stats">
-          <% if @the_prof.athletics == true%>
-            <% if @the_character.str_score-10 > 1%>
-              Athletics +<%= (@the_character.str_score-10)/2%>
-            <%else%>
-              Athletics <%= (@the_character.str_score-10)/2%>
-            <%end%>
-          <%else%>
-                      <% if @the_character.str_score-10 > 1%>
-              Athletics +<%= (@the_character.str_score-10)/2%>
-            <%else%>
-              Athletics <%= (@the_character.str_score-10)/2%>
-            <%end%>
-          <%end%>
+            Athletics <%= @profic.fetch(:athleticscheck)%>
           </dd>
         </div>
         <div class="stats_label">
@@ -146,28 +134,13 @@
             <%end%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.dex_score-10 > 1%>
-              Acrobatics +<%= (@the_character.dex_score-10)/2%>
-            <%else%>
-              Acrobatics <%= (@the_character.dex_score-10)/2%>
-            <%end%>
+            Acrobatics <%= @profic.fetch(:acrobaticscheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.dex_score-10 > 1%>
-              Sleight of Hand +<%= (@the_character.dex_score-10)/2%>
-            <%else%>
-              Sleight of Hand <%= (@the_character.dex_score-10)/2%>
-            <%end%>
+            Sleight of Hand <%= @profic.fetch(:sleightofhandcheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.dex_score-10 > 1%>
-              Stealth +<%= (@the_character.dex_score-10)/2%>
-            <%else%>
-              Stealth <%= (@the_character.dex_score-10)/2%>
-            <%end%>
+            Stealth <%= @profic.fetch(:stealthcheck)%>
           </dd>
         </div>
         <div class="stats_label">
@@ -201,45 +174,23 @@
               <%= (@the_character.int_score-10)/2%>
             <%end%>
           </dd>
+          </dd>
           <dd class="stats">
-
-            <% if @the_character.int_score-10 > 1%>
-              Arcana +<%= (@the_character.int_score-10)/2%>
-            <%else%>
-              Arcana <%= (@the_character.int_score-10)/2%>
-            <%end%>
+            Arcana <%= @profic.fetch(:arcanacheck)%>
           </dd>
           <dd class="stats">
 
-            <% if @the_character.int_score-10 > 1%>
-              History +<%= (@the_character.int_score-10)/2%>
-            <%else%>
-              History <%= (@the_character.int_score-10)/2%>
-            <%end%>
+          <dd class="stats">
+            History <%= @profic.fetch(:historycheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.int_score-10 > 1%>
-              Nature +<%= (@the_character.int_score-10)/2%>
-            <%else%>
-              Nature <%= (@the_character.int_score-10)/2%>
-            <%end%>
+            Nature <%= @profic.fetch(:naturecheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.int_score-10 > 1%>
-              Investigation +<%= (@the_character.int_score-10)/2%>
-            <%else%>
-              Investigation <%= (@the_character.int_score-10)/2%>
-            <%end%>
+            Investigation <%= @profic.fetch(:investigationcheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.int_score-10 > 1%>
-              Religion +<%= (@the_character.int_score-10)/2%>
-            <%else%>
-              Religion <%= (@the_character.int_score-10)/2%>
-            <%end%>
+            Religion <%= @profic.fetch(:religioncheck)%>
           </dd>
         </div>
         <div class="stats_label">
@@ -258,44 +209,19 @@
             <%end%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.wis_score-10 > 1%>
-              Animal Handling +<%= (@the_character.wis_score-10)/2%>
-            <%else%>
-              Animal Handling <%= (@the_character.wis_score-10)/2%>
-            <%end%>
+            Animal Handling <%= @profic.fetch(:animalhandlingcheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.wis_score-10 > 1%>
-              Insight +<%= (@the_character.wis_score-10)/2%>
-            <%else%>
-              Insight <%= (@the_character.wis_score-10)/2%>
-            <%end%>
+            Insight <%= @profic.fetch(:insightcheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.wis_score-10 > 1%>
-              Medicine +<%= (@the_character.wis_score-10)/2%>
-            <%else%>
-              Medicine <%= (@the_character.wis_score-10)/2%>
-            <%end%>
+            Medicine <%= @profic.fetch(:medicinecheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.wis_score-10 > 1%>
-              Perception +<%= (@the_character.wis_score-10)/2%>
-            <%else%>
-              Perception <%= (@the_character.wis_score-10)/2%>
-            <%end%>
+            Perception <%= @profic.fetch(:perceptioncheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.wis_score-10 > 1%>
-              Survival +<%= (@the_character.wis_score-10)/2%>
-            <%else%>
-              Survival <%= (@the_character.wis_score-10)/2%>
-            <%end%>
+            Survival <%= @profic.fetch(:survivalcheck)%>
           </dd>
         </div>
         <div class="stats_label">
@@ -306,7 +232,7 @@
           <dd>
             <%= @the_character.cha_score %>
           </dd>
-<dd>
+          <dd>
             <% if @the_character.cha_score-10 > 1%>
               +<%= (@the_character.cha_score-10)/2%>
             <%else%>
@@ -314,36 +240,16 @@
             <%end%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.cha_score-10 > 1%>
-              Deception +<%= (@the_character.cha_score-10)/2%>
-            <%else%>
-              Deception <%= (@the_character.cha_score-10)/2%>
-            <%end%>
+            Deception <%= @profic.fetch(:deceptioncheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.cha_score-10 > 1%>
-              Intimidation +<%= (@the_character.cha_score-10)/2%>
-            <%else%>
-              Intimidation <%= (@the_character.cha_score-10)/2%>
-            <%end%>
+            Intimidation <%= @profic.fetch(:intimidationcheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.cha_score-10 > 1%>
-              Persuasion +<%= (@the_character.cha_score-10)/2%>
-            <%else%>
-              Persuasion <%= (@the_character.cha_score-10)/2%>
-            <%end%>
+            Persuasion <%= @profic.fetch(:persuasioncheck)%>
           </dd>
           <dd class="stats">
-
-            <% if @the_character.cha_score-10 > 1%>
-              Performance +<%= (@the_character.cha_score-10)/2%>
-            <%else%>
-              Performance <%= (@the_character.cha_score-10)/2%>
-            <%end%>
+            Performance <%= @profic.fetch(:performancecheck)%>
           </dd>
         </div>
       </div>
