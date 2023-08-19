@@ -116,9 +116,6 @@
         <input type="text" id="gold_box" name="query_gold" value="<%= @the_character.gold %>">
       </div>
 
-    </div>
-
-    <div>
       <div>
         <h2>
           Edit character prof
@@ -165,11 +162,10 @@
         </div>
 
         <div>
+          <input type="checkbox" id="chr_save_box" name="query_chr_save" value="1" <%= "checked" if @the_character_prof.chr_save %>>
           <label for="chr_save_box">
-            Cha save boolean
+            Chr Saves
           </label>
-
-          <input type="text" id="chr_save_box" name="query_chr_save" value="<%= @the_character_prof.chr_save%>">
         </div>
 
         <div>
@@ -317,7 +313,7 @@
         </div>
 
       </div>
-      <button>
+      <button type="submit">
         Update character
       </button>
     </div>

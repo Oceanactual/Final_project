@@ -25,3 +25,10 @@
   flex-direction: column;
   text-align: center;
  }
+
+ .simple {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+ }

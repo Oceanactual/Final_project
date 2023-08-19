@@ -258,13 +258,6 @@ class CharactersController < ApplicationController
     the_character.current_hp = params.fetch("query_current_hp")
     the_character.gold = params.fetch("query_gold")
 
-    if the_character.valid?
-      the_character.save
-      redirect_to("/characters", { :notice => "Character created successfully." })
-    else
-      redirect_to("/characters", { :alert => the_character.errors.full_messages.to_sentence })
-    end
-
     the_character_prof = CharacterProf.new
     the_character_prof.str_save = params.fetch("query_str_save", false)
     the_character_prof.dex_save = params.fetch("query_dex_save", false)
@@ -293,6 +286,13 @@ class CharactersController < ApplicationController
     the_character_prof.character_id = char.id
 
     the_character_prof.save
+
+    if the_character.valid?
+      the_character.save
+      redirect_to("/characters", { :notice => "Character created successfully." })
+    else
+      redirect_to("/characters", { :alert => the_character.errors.full_messages.to_sentence })
+    end
   end
 
   def update
@@ -311,7 +311,7 @@ class CharactersController < ApplicationController
 
     the_character.name = params.fetch("query_name")
     the_character.race = the_character.race
-    the_character.clas = the_character.clas
+    the_character.clas = params.fetch("query_class")
     the_character.background = the_character.background
     the_character.level = params.fetch("query_level")
     the_character.str_score = params.fetch("query_str_score")
@@ -347,21 +347,13 @@ class CharactersController < ApplicationController
       the_character.sub_race = "none"
     end
 
-    if the_character.valid?
-      the_character.save
-      redirect_to("/characters/#{the_character.id}", { :notice => "Character updated successfully." })
-    else
-      puts the_character.errors.full_messages
-      redirect_to("/characters/#{the_character.id}", { :alert => the_character.errors.full_messages.to_sentence })
-    end
-
-    the_character_prof = CharacterProf.new
+    the_character_prof = CharacterProf.where({ :character_id => the_character.id }).at(0)
     the_character_prof.str_save = params.fetch("query_str_save", false)
     the_character_prof.dex_save = params.fetch("query_dex_save", false)
     the_character_prof.con_save = params.fetch("query_con_save", false)
     the_character_prof.int_save = params.fetch("query_int_save", false)
     the_character_prof.wis_save = params.fetch("query_wis_save", false)
-    the_character_prof.chr_save = params.fetch("query_chr_save")
+    the_character_prof.chr_save = params.fetch("query_chr_save", false)
     the_character_prof.athletics = params.fetch("query_athletics", false)
     the_character_prof.acrobatics = params.fetch("query_acrobatics", false)
     the_character_prof.sleight_of_hand = params.fetch("query_sleight_of_hand", false)
@@ -380,9 +372,22 @@ class CharactersController < ApplicationController
     the_character_prof.intimidation = params.fetch("query_intimidation", false)
     the_character_prof.persuasion = params.fetch("query_persuasion", false)
     the_character_prof.performance = params.fetch("query_performance", false)
-    the_character_prof.character_id = char.id
+    the_character_prof.character_id = the_character.id
 
-    the_character_prof.save
+    if the_character_prof.valid?
+      the_character_prof.save
+    else
+      puts the_character_prof.errors.full_messages
+      redirect_to("/characters/#{the_character.id}", { :alert => the_character_prof.errors.full_messages.to_sentence })
+    end
+
+    if the_character.valid?
+      the_character.save
+      redirect_to("/characters/#{the_character.id}", { :notice => "Character updated successfully." })
+    else
+      puts the_character.errors.full_messages
+       redirect_to("/characters/#{the_character.id}", { :alert => the_character.errors.full_messages.to_sentence })
+     end
   end
 
   def destroy
