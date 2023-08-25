@@ -207,7 +207,7 @@ class CharactersController < ApplicationController
     render({ :template => "characters/show" })
   end
 
-  def edit
+  def edit 
     races_web = HTTP.get("https://www.dnd5eapi.co/api/races")
     raw_races = JSON.parse(races_web)
     @races = raw_races.fetch("results")
