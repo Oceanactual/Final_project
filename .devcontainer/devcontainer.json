@@ -23,6 +23,10 @@
     }
   },
 
+  "resolutions": {
+    "cssnano-preset-simple": "3.0.0"
+  },
+
   "otherPortsAttributes": {"onAutoForward": "ignore"},
 
   // Use 'postCreateCommand' to run commands after the container is created.
