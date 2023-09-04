@@ -70,4 +70,4 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 EXPOSE 3000
 CMD ["./bin/rails", "server"]
 
-ENV RAILS_SERVE_STATIC_FILES="true"
+# ENV RAILS_SERVE_STATIC_FILES="true"
