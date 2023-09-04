@@ -69,3 +69,5 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
 CMD ["./bin/rails", "server"]
+
+ENV RAILS_SERVE_STATIC_FILES="true"
